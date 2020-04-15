@@ -30,14 +30,29 @@ module.exports = (env, options) => {
         use: [
           MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader',
         ],
-      }, {
+      },
+      {
         test: /\.(png|svg|jpe?g|gif)$/,
         use: [
           {
             loader: 'file-loader',
+            options: {
+              name: '[name].[ext]', outputPath: 'assets/' },
           },
         ],
       },
+      {
+        test: /\.(woff(2)?|ttf)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: { name: '[name].[ext]', outputPath: 'fonts/' },
+          },
+        ],
+      },
+
+
+
       ],
     },
 
@@ -50,6 +65,6 @@ module.exports = (env, options) => {
         filename: 'style.css',
       }),
   ],
-    },
+    }
   return config;
 }
