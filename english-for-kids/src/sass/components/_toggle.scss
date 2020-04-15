@@ -1,0 +1,46 @@
+.mode {
+  display: flex;
+  justify-content:  space-between;
+  align-items: center;
+  background: $blue;
+  width:120px;
+  height: 50px;
+  color: $yellow;
+  font-size: 30px;
+  border-radius:  20px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.mode__toggle {
+  width: 27px;
+  height: 27px;
+  background: $yellow;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+}
+
+.mode__name {
+  position: absolute;
+  right: 40px;
+  left: 10px;
+  transition: left .3s ease-in-out;
+}
+
+.mode_toggled {
+  background: $yellow;
+  color: $blue;
+}
+
+.mode__name_toggled{
+  left: 70px;
+  right: 10px;
+  display: inline-block;
+}
+
+.mode__toggle_toggled{
+  background: $blue;
+  left: 10px;
+  right: auto;
+}
