@@ -1,14 +1,20 @@
 @import "../../node_modules/normalize.css/normalize.css";
 @import "../assets/fonts/fonts.css";
 
+
+/*BASE*/
 @import "base/base";
 
+
+/*CONSTANTS*/
 @import "abstract/constants";
+
 
 /*LAYOUTS*/
 @import "layouts/wrapper";
 @import "layouts/header";
 @import "layouts/columns";
+
 
 /*HEADER*/
 @import "components/menu";

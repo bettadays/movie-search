@@ -6,23 +6,70 @@
   width: 40px;
   height: 30px;
   cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .hamburger__line {
   background: lightgrey;
   height: calc(30px/6);
   width: 40px;
+  border-radius: 2px;
+  transform: rotate(0deg);
+  opacity: 1;
+  transition: all .5s ;
+}
+
+.hamburger__line-1_clicked {
+  transform: rotate(45deg) translateY(18px);
+}
+.hamburger__line-2_clicked {
+  opacity: 0;
+}
+
+.hamburger__line-3_clicked {
+  transform: rotate(-45deg)  translateY(-18px);
+}
+
+.menu-wrapper {
+  justify-content: center;
+  align-items:  center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 30vw;
+  background: $yellow;
+  display: none;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items:  center;
+  font-size: 3.6rem;
+  width: 100%;
+  padding: 0;
 }
 
 .menu__item {
   text-decoration: none;
+  padding-bottom: 10px;
+  width: 100%;
+  color: $blue;
   & li {
     list-style: none;
+    line-height:  3rem;
+    text-align:  center;
+    padding: 3px 0;
+    &:hover{
+      background: $hover;
+    }
   }
-
-
-  &:hover{
-
-  }
-
 }
+
+.visible {
+  display: flex;
+}
+
+
