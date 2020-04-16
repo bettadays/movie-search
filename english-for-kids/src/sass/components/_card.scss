@@ -3,19 +3,24 @@
   flex-wrap: wrap;
   justify-content: center;
   padding-top: 40px;
+
+}
+
+.category-card {
+  width: 300px;
+  margin: 20px;
 }
 
 .category-card, .word-card {
   display: flex;
   flex-direction:  column;
   align-items: center;
-  width: 300px;
   background: $blue;
   text-decoration: none;
   color: $yellow;
   box-shadow: 7px 7px 21px grey;
-  margin: 20px;
   border-radius:  5px;
+  position: relative;
   &:hover{
     box-shadow: 7px 7px 21px $yellow;
   };
@@ -48,8 +53,42 @@
 .word-card__name {
   font-size: 4rem;
   margin: 30px auto;
-
 }
+.word-card__rotate-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  &:hover{
+    color: $hover;
+  }
+}
+
+.card-wrapper {
+   perspective: 1000px;
+   width: 300px;
+   margin: 20px;
+}
+
+.card {
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
+}
+
+.word-card-back, .word-card-front {
+  backface-visibility: hidden;
+  position: absolute;
+}
+
+.word-card-back {
+  transform: rotateY(180deg);
+}
+
+.card_rotated {
+  transform: rotateY(180deg);
+}
+
+
 
 
 

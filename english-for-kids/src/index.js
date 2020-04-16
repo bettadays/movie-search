@@ -1,3 +1,6 @@
+import cards from './js/cards.js'
+
+
 const mode = document.querySelector('.mode');
 const modeName = document.querySelector('.mode__name');
 const toggle = document.querySelector('.mode__toggle');
@@ -38,3 +41,26 @@ document.addEventListener('click', (e) => {
     toggleMenu(e);
   }
 });
+
+const rotateBtn = document.querySelector('.word-card__rotate-btn');
+let cardRotated = false;
+rotateBtn.addEventListener('click', (e) => {
+  // e.stopPropagation();
+  cardRotated = !cardRotated;
+  const card = e.target.closest('.card');
+  card.classList.add('card_rotated');
+});
+
+const card = document.querySelector('.card');
+
+card.addEventListener('mouseout', (e) => {
+  const currentEl = e.relatedTarget.closest('.card');
+  if (cardRotated && !currentEl) {
+    card.classList.remove('card_rotated');
+    cardRotated = !cardRotated;
+
+  }
+})
+
+
+
