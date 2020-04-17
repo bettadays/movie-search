@@ -27,8 +27,8 @@
 }
 
 .category-card__img {
-  background: url(../assets/img/bird.jpg) center;
   background-size: cover;
+  background-position: center center;
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -43,8 +43,8 @@
 }
 
 .word-card__img {
-  background: url(../assets/img/bird.jpg) center;
-  background-size: contain;
+  background-position: center center;
+  background-size: cover;
   width: 300px;
   height: 200px;
   margin: 30px auto;
@@ -58,6 +58,7 @@
   position: absolute;
   right: 15px;
   bottom: 15px;
+  font-size: 2.5rem;
   &:hover{
     color: $hover;
   }
@@ -66,6 +67,7 @@
 .card-wrapper {
    perspective: 1000px;
    width: 300px;
+   height: 366px;
    margin: 20px;
 }
 
@@ -73,6 +75,8 @@
   transform-style: preserve-3d;
   transition: transform 0.8s;
   position: relative;
+  width: 300px;
+  height: 366px;
 }
 
 .word-card-back, .word-card-front {

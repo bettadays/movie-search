@@ -16,7 +16,7 @@ export class WordCard {
             <a href="#" class="word-card word-card-front">
               <div class="word-card__img" style="background-image: url(../assets/${this.image}"></div>
               <div class="word-card__name">${this.word}
-                <i class=" word-card__rotate-btn"></i>
+                <i class="fas fa-sync-alt word-card__rotate-btn"></i>
               </div>
             </a>
             <a href="#" class="word-card word-card-back">

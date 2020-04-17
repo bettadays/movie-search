@@ -1,4 +1,18 @@
-import cards from './js/cards.js'
+import cards from './js/cards.js';
+import {CategoriesList} from './js/CategoriesList.js';
+import {WordsList} from './js/WordsList.js';
+
+
+
+
+const modePlay = false;
+let cardRotated = false;
+
+// const categoriesList = new CategoriesList(cards);
+// categoriesList.generate();
+
+const wordsList = new WordsList(cards,'Landscape', 'train');
+wordsList.generate();
 
 
 const mode = document.querySelector('.mode');
@@ -42,25 +56,41 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const rotateBtn = document.querySelector('.word-card__rotate-btn');
-let cardRotated = false;
-rotateBtn.addEventListener('click', (e) => {
-  // e.stopPropagation();
+
+const cardsContainer = document.querySelector('.cards-container');
+
+
+cardsContainer.addEventListener('click', (e) => {
+  if(e.target.classList.contains('word-card__rotate-btn')) {
   cardRotated = !cardRotated;
   const card = e.target.closest('.card');
   card.classList.add('card_rotated');
+}
 });
 
-const card = document.querySelector('.card');
+//const card = document.querySelector('.card');
 
-card.addEventListener('mouseout', (e) => {
-  const currentEl = e.relatedTarget.closest('.card');
-  if (cardRotated && !currentEl) {
-    card.classList.remove('card_rotated');
+cardsContainer.addEventListener('mouseout', (e) => { // rewrite since now event delegation;
+  if(e.target.closest('.word-card')) {
+  const currentElCheck = e.relatedTarget.closest('.card');
+  if (cardRotated && !currentElCheck) {
+    const card = e.target.closest('.card_rotated');
+    card.classList.remove('card_rotated');//
     cardRotated = !cardRotated;
+  }
+}
+});
 
+
+
+cardsContainer.addEventListener('click', (e) => {
+  if(e.target.closest('.word-card') && !cardRotated && !e.target.classList.contains('word-card__rotate-btn')) {
+    const audioSrc = e.target.closest('.card').dataset.audio;
+    const audio = new Audio(audioSrc);
+    audio.play();
   }
 })
+
 
 
 
