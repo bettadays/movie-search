@@ -1,5 +1,6 @@
 import {WordCard} from './WordCard.js';
 
+
 export class WordsList {
   constructor(data, category, mode) {
     this.category = category;
