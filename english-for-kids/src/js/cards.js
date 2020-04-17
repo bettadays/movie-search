@@ -1,7 +1,6 @@
 const cards = [
-  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
-  [
-    {
+{catName: 'Action I',
+data: [{
       word: 'cry',
       translation: 'плакать',
       image: 'img/cry.jpg',
@@ -49,9 +48,11 @@ const cards = [
       image: 'img/jump.jpg',
       audioSrc: 'audio/jump.mp3',
     },
-  ],
-  [
-    {
+    ]
+  },
+  {catName: 'Action II',
+  data: [
+  {
       word: 'open',
       translation: 'открывать',
       image: 'img/open.jpg',
@@ -100,8 +101,10 @@ const cards = [
       audioSrc: 'audio/swim.mp3',
     },
   ],
-  [
-    {
+},
+{ catName: 'Animals I',
+  data: [
+      {
       word: 'cat',
       translation: 'кот',
       image: 'img/cat.jpg',
@@ -150,8 +153,10 @@ const cards = [
       audioSrc: 'audio/sheep.mp3',
     },
   ],
-  [
-    {
+},
+{ catName: 'Animals II',
+  data: [
+          {
       word: 'bird',
       translation: 'птица',
       image: 'img/bird.jpg',
@@ -200,8 +205,10 @@ const cards = [
       audioSrc: 'audio/dolphin.mp3',
     },
   ],
-  [
-    {
+},
+{ catName: 'Clothes',
+  data: [
+              {
       word: 'skirt',
       translation: 'юбка',
       image: 'img/skirt.jpg',
@@ -250,8 +257,10 @@ const cards = [
       audioSrc: 'audio/shoe.mp3',
     },
   ],
-  [
-    {
+},
+{ catName: 'Emotions',
+  data: [
+                  {
       word: 'sad',
       translation: 'грустный',
       image: 'img/sad.jpg',
@@ -300,7 +309,116 @@ const cards = [
       audioSrc: 'audio/laugh.mp3',
     },
   ],
-];
+},
+  { catName: 'Landscape',
+  data: [
+  {
+      word: 'waterfall',
+      translation: 'водопад',
+      image: 'img/waterfall.jpg',
+      audioSrc: 'audio/waterfall.mp3',
+    },
+    {
+      word: 'desert',
+      translation: 'пустыня',
+      image: 'img/desert.jpg',
+      audioSrc: 'audio/desert.mp3',
+    },
+    {
+      word: 'volcano',
+      translation: 'вулкан',
+      image: 'img/volcano.jpg',
+      audioSrc: 'audio/volcano.mp3',
+    },
+    {
+      word: 'river',
+      translation: 'река',
+      image: 'img/river.jpg',
+      audioSrc: 'audio/river.mp3',
+    },
+    {
+      word: 'island',
+      translation: 'остров',
+      image: 'img/island.jpg',
+      audioSrc: 'audio/island.mp3',
+    },
+    {
+      word: 'glacier',
+      translation: 'ледник',
+      image: 'img/glacier.jpg',
+      audioSrc: 'audio/glacier.mp3',
+    },
+    {
+      word: 'ocean',
+      translation: 'океан',
+      image: 'img/ocean.jpg',
+      audioSrc: 'audio/ocean.mp3',
+    },
+    {
+      word: 'mountain',
+      translation: 'гора',
+      image: 'img/mountain.jpg',
+      audioSrc: 'audio/mountain.mp3',
+    },
+  ],
+},
+  { catName: 'Weather',
+  data: [
+  {
+      word: 'lightning',
+      translation: 'молния',
+      image: 'img/lightning.jpg',
+      audioSrc: 'audio/lightning.mp3',
+    },
+    {
+      word: 'fog',
+      translation: 'туман',
+      image: 'img/fog.jpg',
+      audioSrc: 'audio/fog.mp3',
+    },
+    {
+      word: 'hail',
+      translation: 'град',
+      image: 'img/hail.jpg',
+      audioSrc: 'audio/hail.mp3',
+    },
+    {
+      word: 'snow',
+      translation: 'снег',
+      image: 'img/snow.jpg',
+      audioSrc: 'audio/snow.mp3',
+    },
+    {
+      word: 'cloud',
+      translation: 'облако',
+      image: 'img/cloud.jpg',
+      audioSrc: 'audio/cloud.mp3',
+    },
+    {
+      word: 'sun',
+      translation: 'солнце',
+      image: 'img/sun.jpg',
+      audioSrc: 'audio/sun.mp3',
+    },
+    {
+      word: 'rainbow',
+      translation: 'радуга',
+      image: 'img/rainbow.jpg',
+      audioSrc: 'audio/rainbow.mp3',
+    },
+    {
+      word: 'rain',
+      translation: 'дождь',
+      image: 'img/rain.jpg',
+      audioSrc: 'audio/rain.mp3',
+    },
+  ],
+},
+
+
+
+]
+
 
 
 export default cards;
