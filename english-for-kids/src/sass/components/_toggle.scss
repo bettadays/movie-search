@@ -10,6 +10,7 @@
   border-radius:  20px;
   padding: 0 20px;
   position: relative;
+  cursor: pointer;
 }
 
 .mode__toggle {
@@ -34,7 +35,7 @@
 }
 
 .mode__name_toggled{
-  left: 70px;
+  left: 60px;
   right: 10px;
   display: inline-block;
 }

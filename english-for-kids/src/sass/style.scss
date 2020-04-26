@@ -3,12 +3,14 @@
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
 
-/*BASE*/
-@import "base/base";
+
 
 
 /*CONSTANTS*/
 @import "abstract/constants";
+
+/*BASE*/
+@import "base/base";
 
 
 /*LAYOUTS*/

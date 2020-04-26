@@ -37,8 +37,7 @@ module.exports = (env, options) => {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              name: '[name].[ext]', outputPath: 'assets/' },
+            options: { name: '[name].[ext]', outputPath: 'assets/' },
           },
         ],
       },
@@ -67,7 +66,7 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({
         filename: 'style.css',
       }),
-      new CopyWebpackPlugin([{ from: './src/assets', to: 'assets',}]),
+      new CopyWebpackPlugin([{ from: './src/assets', to: 'assets' }]),
     ],
   };
   return config;

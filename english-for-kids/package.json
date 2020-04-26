@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server  --mode development",
-    "prod": "webpack --mode production "
+    "prod": "webpack --mode production ",
+    "lint": "eslint ./**/*.js",
+    "fix": "eslint ./**/*.js --fix"
+
   },
   "author": "'Tetiana Ovchar'",
   "license": "ISC",
