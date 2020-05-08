@@ -1,0 +1,14 @@
+.header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right top, grey, black 60%, grey);
+  font-family: 'Pacifico', cursive;
+}
+
+.header-title {
+  font-size: 4rem;
+  color: white;
+}
