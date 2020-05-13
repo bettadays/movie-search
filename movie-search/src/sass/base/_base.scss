@@ -9,11 +9,12 @@ html {
   margin: 0 auto;
 }
 
-.error {
+.error-noerror {
   height: 30px;
   margin: 15px auto 0;
   text-align:  center;
   font-size:  2rem;
+  color: #3c64c2;
 }
 
 .movie-search {
@@ -21,3 +22,5 @@ html {
   position: relative;
   width: 80%;
 }
+
+

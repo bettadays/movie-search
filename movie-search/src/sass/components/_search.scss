@@ -14,12 +14,29 @@
   border-radius: 10px;
   border: 2px solid black;
   outline: none;
+  position: relative;
 
   @media (min-width: 678px) {
     width: 60%;
     margin-right: 30px;
     margin-bottom: 0;
   }
+}
+
+.loader {
+  visibility: hidden;
+  border: 7px solid #f3f3f3;
+  border-top: 7px solid #454545;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  animation: spin 2s linear infinite;
+  margin: 7px auto ;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .search-button {
@@ -34,4 +51,14 @@
     background-color: #707070;
     cursor: pointer;
   }
+}
+
+.visible{
+  visibility: visible;
+}
+
+.total-results {
+  text-align:  center;
+  font-size: 2rem;
+  margin-top: 40px;
 }
