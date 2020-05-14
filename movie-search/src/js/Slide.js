@@ -14,7 +14,7 @@ export class Slide {
     slideImg.classList.add('swiper-slide__img');
     slideImg.src = this.imgSrc;
     slideImg.alt = 'Movie poster';
-    return new Promise((resolve) => {
+    return new Promise((resolve) => { //wo prom
       slideImg.onload = function () {
         resolve(slideImg);
       };

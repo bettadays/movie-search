@@ -7,6 +7,8 @@ export const state = {
   loadMore: false,
   controller: {},
   controllerSignal: {},
+  triggerLoadMoreSlides: 5,
+  currentIndex: 0,
 };
 
 export const createController = () => {
@@ -16,7 +18,7 @@ export const createController = () => {
 };
 
 const createRequest = (movie, mode) => {
-  const apiKeyImdb = '40f580a6&t';
+  const apiKeyImdb = 'db40933d';
   const requestMode = (mode === 'search' ? 's' : 'i');
   const encodedMovieTitle = encodeURI(movie);
   const url = `https://www.omdbapi.com/?apikey=${apiKeyImdb}&${requestMode}=${encodedMovieTitle}&page=${state.currentPage}&type=movie`;
@@ -83,7 +85,7 @@ export async function getMovies(userInput) {
 
         if (!state.loadMore) {
           mySwiper.removeAllSlides();
-          mySwiper.slideTo(0);
+
         }
 
         const slides = [];
@@ -92,6 +94,7 @@ export async function getMovies(userInput) {
           slides.push(slide.createMarkup());
         });
         mySwiper.appendSlide(slides);
+        mySwiper.slideTo(state.currentIndex);
 
 
         error.innerHTML = `Showing results for '${state.movieRequest}'`;
@@ -99,7 +102,8 @@ export async function getMovies(userInput) {
 
         totalFilmsFound.innerHTML = `${moviesData.totalResults} movies were found`;
       }
-    } else {
+    }
+    else {
       error.innerHTML = 'Sorry! Request limit reached';
       error.style.color = 'red';
     }

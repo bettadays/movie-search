@@ -10,6 +10,7 @@ export  const mySwiper = new Swiper('.swiper-container', {
   watchOverflow: true,
   observer: true,
 
+
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -35,10 +36,17 @@ export  const mySwiper = new Swiper('.swiper-container', {
   },
   on: {
     slideChange() {
-      if (mySwiper.progress >= 0.4) {
+     // console.log('activeIndex', this.activeIndex);
+     // console.log('current page', state.currentPage );
+     // console.log('trigger', state.triggerLoadMoreSlides );
+
+      if (mySwiper.activeIndex >= state.triggerLoadMoreSlides ) {
+        state.triggerLoadMoreSlides += 10;
         state.currentPage += 1;
         state.loadMore = true;
+        state.currentIndex = this.activeIndex;
         getMovies(state.movieRequest);
+        // mySwiper.update();
       }
     },
 
