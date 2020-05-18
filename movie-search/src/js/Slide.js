@@ -1,3 +1,5 @@
+import create from './utils/create';
+
 export class Slide {
   constructor({
     Title, Poster, Year, rating, gallery,
@@ -14,7 +16,7 @@ export class Slide {
     slideImg.classList.add('swiper-slide__img');
     slideImg.src = this.imgSrc;
     slideImg.alt = 'Movie poster';
-    return new Promise((resolve) => { //wo prom
+    return new Promise((resolve) => { // wo prom
       slideImg.onload = function () {
         resolve(slideImg);
       };
@@ -25,45 +27,20 @@ export class Slide {
     });
   }
 
+
   createMarkup() {
-    const slide = document.createElement('div');
-    slide.classList.add('swiper-slide');
+    const slide = create('div', ['swiper-slide']);
+    const slideLink = create('a', ['swiper-slide__link'], { href: this.link, target: '_blank' }, null, slide);
+    const slideTitle = create('h3', ['swiper-slide__title'], null, this.title, slideLink);
+    const tooltipWrapper = create('div', ['swiper-slide__tooltip-wrapper'], null, null, slideTitle);
 
-    const slideLink = document.createElement('a');
-    slideLink.classList.add('swiper-slide__link');
-    slideLink.href = this.link;
-    slideLink.target = '_blank';
+    const tooltip = create('span', ['swiper-slide__tooltip'], null, this.title, tooltipWrapper);
+    const slideYear = create('div', ['swiper-slide__year'], null, this.year);
+    const slideRating = create('div', ['swiper-slide__rating'], null, this.rating);
+    const slideStar = create('img', ['swiper-slide__star'], { src: './src/assets/img/star.svg', alt: 'Star' });
 
-    const slideTitle = document.createElement('h3');
-    slideTitle.classList.add('swiper-slide__title');
-    slideTitle.innerHTML = this.title;
 
-    const tooltipWrapper = document.createElement('div');
-    tooltipWrapper.classList.add('swiper-slide__tooltip-wrapper');
-
-    const tooltip = document.createElement('span');
-    tooltip.classList.add('swiper-slide__tooltip');
-    tooltip.innerHTML = this.title;
-
-    const slideYear = document.createElement('div');
-    slideYear.classList.add('swiper-slide__year');
-    slideYear.innerHTML = this.year;
-
-    const slideRating = document.createElement('div');
-    slideRating.classList.add('swiper-slide__rating');
-    slideRating.innerHTML = this.rating;
-
-    const slideStar = document.createElement('img');
-    slideStar.classList.add('swiper-slide__star');
-    slideStar.src = './src/assets/img/star.svg';
-    slideStar.alt = 'Star';
-
-    tooltipWrapper.append(tooltip);
-    slideTitle.append(tooltipWrapper);
-
-    slideLink.append(slideTitle);
-    slide.append(slideLink);
-    this.preloadImg()
+    this.preloadImg() // later on
       .then((img) => {
         slide.append(img);
         slide.append(slideYear);
