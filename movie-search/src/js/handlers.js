@@ -1,62 +1,45 @@
-import {mySwiper} from './mySwiper';
-import {app} from '../index.js';
+import mySwiper from './mySwiper';
 
 
-
-export default function assignHandlers() {
-
-  mySwiper.on('slideChange', function () {
-
-console.log(app.currentIndex)
- //app.currentIndex = mySwiper.activeIndex;
-
-    console.log('activeIndex', this.activeIndex);
-    console.log('current page', app.currentPage);
-    console.log('trigger', app.triggerLoadMoreSlides);
-    if (mySwiper.activeIndex >= app.triggerLoadMoreSlides) {
+export default function assignHandlers(app) {
+  const application = app;
+  mySwiper.on('slideChange', () => {
+    if (mySwiper.activeIndex >= application.triggerLoadMoreSlides) {
       const stepToTriggerAdditionalRequest = 10;
-      app.triggerLoadMoreSlides += stepToTriggerAdditionalRequest;
-      app.currentPage += 1;
-      app.loadMore = true;
-      console.log(this.activeIndex);
-      app.getMovies(app.movieRequest);
-
-
+      application.triggerLoadMoreSlides += stepToTriggerAdditionalRequest;
+      application.currentPage += 1;
+      application.loadMore = true;
+      application.getMovies(application.movieRequest);
     }
   });
 
 
   const formField = document.querySelector('.form');
 
-formField.addEventListener('submit', (e) => {
-  e.preventDefault();
-  app.movieRequest = document.querySelector('.search-field').value;
-  app.currentPage = 1;
-  app.currentIndex = 0;
-  app.triggerLoadMoreSlides = 5;
-  app.loadMore = false;
+  formField.addEventListener('submit', (e) => {
+    e.preventDefault();
+    application.movieRequest = document.querySelector('.search-field').value;
+    application.currentPage = 1;
+    application.currentIndex = 0;
+    application.triggerLoadMoreSlides = 5;
+    application.loadMore = false;
 
-  if (app.controller instanceof AbortController) {
-    app.controller.abort();
-  }
-  app.createController();
-  app.getMovies(app.movieRequest);
-});
-
-
-const search = document.querySelector('.search-field');
-
-search.addEventListener('input', () => {
-  if (search.validity.valueMissing
-    || search.validity.tooShort) {
-    search.setCustomValidity('Name of movie should be at least 3 caracters long');
-  } else {
-    search.setCustomValidity('');
-  }
-});
+    if (application.controller instanceof AbortController) {
+      application.controller.abort();
+    }
+    application.createController();
+    application.getMovies(application.movieRequest);
+  });
 
 
+  const search = document.querySelector('.search-field');
 
-
-
+  search.addEventListener('input', () => {
+    if (search.validity.valueMissing
+      || search.validity.tooShort) {
+      search.setCustomValidity('Name of movie should be at least 3 caracters long');
+    } else {
+      search.setCustomValidity('');
+    }
+  });
 }

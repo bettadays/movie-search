@@ -1,8 +1,12 @@
 import create from './utils/create';
 
-export class Slide {
+export default class Slide {
   constructor({
-    Title, Poster, Year, rating, gallery,
+    Title,
+    Poster,
+    Year,
+    rating,
+    gallery,
   }) {
     this.title = Title;
     this.link = gallery;
@@ -16,17 +20,16 @@ export class Slide {
     slideImg.classList.add('swiper-slide__img');
     slideImg.src = this.imgSrc;
     slideImg.alt = 'Movie poster';
-    return new Promise((resolve) => { // wo prom
-      slideImg.onload = function () {
+    return new Promise((resolve) => {
+      slideImg.onload = () => {
         resolve(slideImg);
       };
-      slideImg.onerror = function () {
+      slideImg.onerror = () => {
         slideImg.src = './assets/img/no-img.jpg';
         resolve(slideImg);
       };
     });
   }
-
 
   createMarkup() {
     const slide = create('div', ['swiper-slide']);
@@ -34,13 +37,12 @@ export class Slide {
     const slideTitle = create('h3', ['swiper-slide__title'], null, this.title, slideLink);
     const tooltipWrapper = create('div', ['swiper-slide__tooltip-wrapper'], null, null, slideTitle);
 
-    const tooltip = create('span', ['swiper-slide__tooltip'], null, this.title, tooltipWrapper);
+
+     /* eslint-disable-line */ const tooltip = create('span', ['swiper-slide__tooltip'], null, this.title, tooltipWrapper);
     const slideYear = create('div', ['swiper-slide__year'], null, this.year);
     const slideRating = create('div', ['swiper-slide__rating'], null, this.rating);
     const slideStar = create('img', ['swiper-slide__star'], { src: './src/assets/img/star.svg', alt: 'Star' });
-
-
-    this.preloadImg() // later on
+    this.preloadImg()
       .then((img) => {
         slide.append(img);
         slide.append(slideYear);

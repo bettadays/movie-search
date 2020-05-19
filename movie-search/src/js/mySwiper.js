@@ -1,6 +1,6 @@
 import Swiper from 'swiper';
 
-export const mySwiper = new Swiper('.swiper-container', {
+const mySwiper = new Swiper('.swiper-container', {
   loop: false,
   init: false,
   slidesPerView: 1,
@@ -31,5 +31,7 @@ export const mySwiper = new Swiper('.swiper-container', {
       spaceBetween: 30,
     },
   },
-
 });
+
+
+export default mySwiper;
