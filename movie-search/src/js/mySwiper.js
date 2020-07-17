@@ -7,7 +7,6 @@ const mySwiper = new Swiper('.swiper-container', {
   initialSlide: 0,
   centerInsufficientSlides: true,
   watchOverflow: true,
-  observer: true,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',

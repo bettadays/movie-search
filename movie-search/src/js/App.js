@@ -81,9 +81,7 @@ export default class App {
       mySwiper.appendSlide(slides);
     } else {
       mySwiper.appendSlide(slides);
-      mySwiper.slideTo(mySwiper.previousIndex);
-    }
-    if (this.firstRender !== true) {
+    } if (this.firstRender !== true) {
       this.constructor.showInfo('.error-noerror', `${constants.RESULTS_FOR} '${this.movieRequest}'`);
       this.constructor.showInfo('.total-results', `${response.totalResults} ${constants.MOVIES_FOUND}`);
     }
